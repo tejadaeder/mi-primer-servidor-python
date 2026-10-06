@@ -16,7 +16,7 @@ def bienvenida():
     """
     return jsonify({
         "estado": "Online",
-        "mensaje": "¡API funcionando correctamente en producción - tercera prueba automatica",
+        "mensaje": "¡API funcionando correctamente en producción - cuarta prueba automatica",
         "documentacion": "/apidocs"
     }), 200
 
