@@ -101,5 +101,28 @@ def login_usuario():
     except Exception as e:
         return jsonify({"error": f"Error al procesar la solicitud: {str(e)}"}), 500
 
+@app.route('/api/usuarios/listar', methods=['GET'])
+def listar_usuarios():
+    """
+    Lista todos los usuarios registrados en la nube (Aiven)
+    ---
+    tags:
+      - Autenticación y Usuarios
+    responses:
+      200:
+        description: Lista de usuarios obtenida exitosamente
+    """
+    conexion = servicio.repositorio.obtener_conexion()
+    if not conexion:
+        return jsonify({"error": "No se pudo conectar a la base de datos"}), 500
+    
+    cursor = conexion.cursor(dictionary=True)
+    cursor.execute("SELECT id, nombre, correo, fecha_registro FROM usuarios_sistema")
+    usuarios = cursor.fetchall()
+    
+    cursor.close()
+    conexion.close()
+    return jsonify(usuarios), 200
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
