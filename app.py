@@ -58,7 +58,7 @@ def registrar_usuario():
     respuesta, codigo_http = servicio.registrar_usuario(datos_json)
     return jsonify(respuesta), codigo_http
 
-@app.route('/api/usuarios/login', methods=['POST'])
+@app.route('/api/usuarios/login/v2', methods=['POST'])
 def login_usuario():
     """
     Inicia sesión validando el Hash con Bcrypt.
