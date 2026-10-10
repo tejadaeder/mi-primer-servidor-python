@@ -22,7 +22,7 @@ def bienvenida():
 
 servicio = UsuarioServicio()
 
-@app.route('/api/usuarios/registro', methods=['POST'])
+@app.route('/api/usuarios/registro/v2', methods=['POST'])
 def registrar_usuario():
     """
     Registra un nuevo usuario en la base de datos de forma segura.
