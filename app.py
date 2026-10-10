@@ -110,7 +110,7 @@ def listar_usuarios():
       - Autenticación y Usuarios
     responses:
       200:
-        description: Lista de usuarios obtenida exitosamente
+        description: Lista de usuarios obtenida exitosamente despues de desplegar render
     """
     conexion = servicio.repositorio.obtener_conexion()
     if not conexion:
